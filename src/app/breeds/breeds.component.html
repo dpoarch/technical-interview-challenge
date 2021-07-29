@@ -1,0 +1,49 @@
+
+<p-card>
+    
+    <p-table [value]="breed" [rowHover]="true">
+        <!-- <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h5 class="p-m-0">Manage Breeds</h5>  
+            </div>
+        </ng-template> -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                <th>Image</th>
+                <th>Action</th> 
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-breeds>
+            <tr>
+                <td>{{breeds.name}}</td>
+                <td><img [src]="apiUrl + '/images/' + breeds.filename" [alt]="breeds.name" width="100" class="p-shadow-4" /></td>
+                <td>
+                    <button pButton pRipple icon="pi pi-search" class="p-button-rounded p-button-outlined p-button-help p-mr-2" (click)="editProduct(breeds)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                In total there are {{breed ? breed.length : 0 }} Breeds.
+            </div>
+        </ng-template>
+    </p-table>
+
+</p-card>
+
+<p-dialog [(visible)]="breedDialog" [style]="{width: '900px'}" header="Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <h1>{{pickedBreed.name}}</h1>
+        <img [src]="apiUrl + '/images/' + pickedBreed.filename" [alt]="pickedBreed.name" class="breedImg" *ngIf="pickedBreed.filename">
+    </ng-template>
+
+
+    
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Close" icon="pi pi-times" class="p-button-text" (click)="closeDialog()"></button>
+    </ng-template>
+</p-dialog>
+
+
+

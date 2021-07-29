@@ -7,7 +7,7 @@ Project UI is PrimeNG which is more compatible on Angular and it is more easy to
 
 Requirements:
 
--Angular Framework 12.1.4
+`-Angular Framework 12.1.4`
 
 How to install:
 
@@ -19,7 +19,7 @@ How to install:
 
 Requirements:
 
--Laravel 8x
+`-Laravel 8x`
 
 
 How to install:
